@@ -9,23 +9,24 @@ import ShoppingCart from './components/ShoppingCart';
 
 // Context
 import ProductProvider from './contexts/ProductContext'
+import CartProvider from './contexts/CartContext';
+
 
 function App() {
-	// const [products] = useState(data);
-	const [cart, setCart] = useState([]);
-
 
 	return (
 		<div className="App">
 			<ProductProvider>
-				<Navigation cart={cart} />
-					{/* Routes */}
-				<Route exact path="/">
-					<Products />
-				</Route>
-				<Route path="/cart">
-					<ShoppingCart cart={cart} />
-				</Route>
+				<CartProvider>
+					<Navigation />
+						{/* Routes */}
+					<Route exact path="/">
+						<Products />
+					</Route>
+					<Route path="/cart">
+						<ShoppingCart />
+					</Route>
+				</CartProvider>
 			</ProductProvider>
 		</div>
 	);

@@ -6,6 +6,7 @@ export const ProductContext = createContext()
 export default function ProductProvider(props) {
 
     const [products] = useState(data)
+    
     const addItem = item => {
 		// add the given item to the cart
 		setCart([...cart, item])
